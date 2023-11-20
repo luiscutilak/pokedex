@@ -1,9 +1,17 @@
 * {
     font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f6f8fc;
 }
 
 .content {
+    width: 100vw;
+    height: 100vh;
     padding: 1rem;
+    background-color: #fff;
     
 }
 
@@ -20,10 +28,27 @@ ol.pokemons {
 }
 
 ol.pokemons li{
+    display: flex;
+    flex-direction: column;
     margin: 0.5rem;
     padding: 2rem 1rem;
     border-radius: 1rem;
     padding: 1rem;
     background-color: #14A06F;
     color: white;
+}
+
+ol.pokemons li img {
+    border-style: none;
+    max-width: 100;
+    align-self: flex-end;
+}
+
+@media screen and (min-width: 992px) {
+    .content {
+        max-width: 992px;
+        height: auto;
+        margin: 1rem auto;
+        border-radius: 1rem;
+    }
 }
