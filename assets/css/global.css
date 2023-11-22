@@ -12,36 +12,6 @@ body {
     height: 100vh;
     padding: 1rem;
     background-color: #fff;
-    
-}
-
-.content h1 {
-    margin: 0;
-}
-
-ol.pokemons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-ol.pokemons li{
-    display: flex;
-    flex-direction: column;
-    margin: 0.5rem;
-    padding: 2rem 1rem;
-    border-radius: 1rem;
-    padding: 1rem;
-    background-color: #14A06F;
-    color: white;
-}
-
-ol.pokemons li img {
-    border-style: none;
-    max-width: 100;
-    align-self: flex-end;
 }
 
 @media screen and (min-width: 992px) {

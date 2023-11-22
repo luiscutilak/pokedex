@@ -1,7 +1,7 @@
 .pokemons {
     display: grid;
     grid-template-columns: 1fr;
-    margin: o;
+    margin: 0;
     padding: 0;
     list-style: none;
 }
@@ -22,7 +22,7 @@
     background-color: #678fee;
 }
 
-.eletric {
+.electric {
     background-color: #f7cf2e;
 }
 
@@ -83,7 +83,7 @@
     flex-direction: column;
     margin: .5rem;
     padding: 1rem;
-    border-radius: 1rem;;
+    border-radius: 1rem;
 }
 
 .pokemon .number {
@@ -163,4 +163,3 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
-
