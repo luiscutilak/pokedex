@@ -23,6 +23,10 @@ function convertPokemonToLi(pokemon) {
     `
 }
 
+function convertPokemonToStats(pokemon) {
+   // converter pokemons STATS para arquivo HTML 
+}
+
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
         const newHtml = pokemons.map(convertPokemonToLi).join('')
@@ -45,3 +49,6 @@ loadMoreButton.addEventListener('click', () => {
         loadPokemonItens(offset, limit)
     }
 })
+
+
+
