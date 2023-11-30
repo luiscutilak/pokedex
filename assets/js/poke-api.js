@@ -28,7 +28,7 @@ pokeApi.getPokemonDetail = (pokemon) => {
 };
 
 // retornando a requisição API e Aguardando A PROMISSE.
-pokeApi.getPokemons = (offset = 0, limit = 5) => {
+pokeApi.getPokemons = (offset = 0, limit = 10) => {
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
 
     return fetch(url)
@@ -40,10 +40,11 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
     
 };
 
-    const urlStats = `https://pokeapi.co/api/v2/stat/{id or name}/`
-    //testando api - buscando Stats na pokeAPI
-    fetch(urlStats).then(function(response) {
-    console.log(response);
-    })    
-    
+    const urlStats = `https://pokeapi.co/api/v2/pokeathlon-stat?{id or name}/`
+    //testando api - buscando api stats
+    fetch(urlStats)
+    .then((response) => response.json())
+    .then((jsonBodyStats) => console.log(jsonBodyStats))
+    .catch((error) => console.error(error))
 
+    //Transformar lista de pokemon em lista HTML
