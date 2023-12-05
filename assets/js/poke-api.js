@@ -6,11 +6,15 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
     pokemon.name = pokeDetail.name;
     const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
     const [type] = types
-
     pokemon.types = types;
     pokemon.type = type;
 
     pokemon.photo = pokeDetail.sprites.other.dream_world.front_default
+    const abilities = pokeDetail.abilities.map((ability) => ability.ability.name).join(', ');
+    pokemon.abilities = abilities;  //abastecendo os ARRAYS da classe pokemon-model. Através do método MAP
+    pokemon.species = pokeDetail.species.name;
+    pokemon.height = pokeDetail.height;
+    pokemon.wieght = pokeDetail.weight;
 
     return pokemon;
 };
@@ -34,58 +38,16 @@ pokeApi.getPokemons = (offset = 0, limit = 10) => {
         .then((pokemonsDetails) => pokemonsDetails)
 }
 
-const searchPokemon = event => {
-    event.preventDefault();
-    const { value } = event.target.pokemon;
-    fetch(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}`)
-    .then(data => data.json())
-    .then(response => renderPokemonData(response))
-}
-
-const renderPokemonData = data => {
-    const sprite = data.sprites.front_default;
-    const { stats } = data;
-    console.log(stats);
-}
-// function convertPokemonStatsToLi(stat) {
-//     return`
-//         <li class="pokemon-stat ${stat.name}">
-//             <span class="number">#${pokemon.number}</span>
-//             <span class="name">${pokemon.name}</span>
-
-//             <div class="pokemons-stats">
-                
-//                 <ol class="stats">
-//                         ${stat.map((stat) => `<li class="stat ${stat}">${stat}</li>`).join('')}
-//                 </ol>
-
-//                 <img src="${pokemon.photo}"
-//                 alt="${pokemon.name}">
-            
-//             </div>
-//         </li>
-//     ` 
+// const searchPokemon = event => {
+//     event.preventDefault();
+//     const { value } = event.target.pokemon;
+//     fetch(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}`)
+//     .then(data => data.json())
+//     .then(response => renderPokemonData(response))
 // }
 
-
-
-
-
-// const urlStats = `https://pokeapi.co/api/v2/?characteristic/{id}/`
-// const pokemonStat = document.getElementById('characteristicsList');
-// // testando api - buscando api stats
-//     fetch(urlStats)
-//     .then((response) => response.json())
-//     .then((jsonBodyStats) => jsonBodyStats.stat)
-//     .then((stats) => {
-
-//         for (let i = 0; i < stats.length; i++) {
-
-//             const stat = stats[i];
-//             pokemonStat.innerHTML += convertPokemonStatsToLi(stat);
-//         }
-
-//     })    
-//     .catch((error) => console.error(error))
-
-//Transformar lista de pokemon em lista HTML
+// const renderPokemonData = data => {
+//     const sprite = data.sprites.front_default;
+//     const { stats } = data;
+//     console.log(stats);
+// }
