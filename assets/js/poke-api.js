@@ -15,11 +15,6 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
     return pokemon;
 };
 
-pokeApi.getPokemonStat= (pokeStat) => {
-    return fetch(pokemon.stats)
-    .then((response) => response.json())
-    
-}
 
 pokeApi.getPokemonDetail = (pokemon) => {
     return fetch(pokemon.url)
@@ -27,7 +22,7 @@ pokeApi.getPokemonDetail = (pokemon) => {
         .then(convertPokeApiDetailToPokemon);
 };
 
-// retornando a requisição API e Aguardando A PROMISSE.
+// retornando a requisição API e Aguardando A PROMISSE. Retorna toda manipulação do Fetch ou seja do consumo da APi
 pokeApi.getPokemons = (offset = 0, limit = 10) => {
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
 
@@ -37,14 +32,60 @@ pokeApi.getPokemons = (offset = 0, limit = 10) => {
         .then((pokemons) => pokemons.map(pokeApi.getPokemonDetail))
         .then((detailRequests) => Promise.all(detailRequests))
         .then((pokemonsDetails) => pokemonsDetails)
-    
-};
+}
 
-    const urlStats = `https://pokeapi.co/api/v2/pokeathlon-stat?{id or name}/`
-    //testando api - buscando api stats
-    fetch(urlStats)
-    .then((response) => response.json())
-    .then((jsonBodyStats) => console.log(jsonBodyStats))
-    .catch((error) => console.error(error))
+const searchPokemon = event => {
+    event.preventDefault();
+    const { value } = event.target.pokemon;
+    fetch(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}`)
+    .then(data => data.json())
+    .then(response => renderPokemonData(response))
+}
 
-    //Transformar lista de pokemon em lista HTML
+const renderPokemonData = data => {
+    const sprite = data.sprites.front_default;
+    const { stats } = data;
+    console.log(stats);
+}
+// function convertPokemonStatsToLi(stat) {
+//     return`
+//         <li class="pokemon-stat ${stat.name}">
+//             <span class="number">#${pokemon.number}</span>
+//             <span class="name">${pokemon.name}</span>
+
+//             <div class="pokemons-stats">
+                
+//                 <ol class="stats">
+//                         ${stat.map((stat) => `<li class="stat ${stat}">${stat}</li>`).join('')}
+//                 </ol>
+
+//                 <img src="${pokemon.photo}"
+//                 alt="${pokemon.name}">
+            
+//             </div>
+//         </li>
+//     ` 
+// }
+
+
+
+
+
+// const urlStats = `https://pokeapi.co/api/v2/?characteristic/{id}/`
+// const pokemonStat = document.getElementById('characteristicsList');
+// // testando api - buscando api stats
+//     fetch(urlStats)
+//     .then((response) => response.json())
+//     .then((jsonBodyStats) => jsonBodyStats.stat)
+//     .then((stats) => {
+
+//         for (let i = 0; i < stats.length; i++) {
+
+//             const stat = stats[i];
+//             pokemonStat.innerHTML += convertPokemonStatsToLi(stat);
+//         }
+
+//     })    
+//     .catch((error) => console.error(error))
+
+//Transformar lista de pokemon em lista HTML
