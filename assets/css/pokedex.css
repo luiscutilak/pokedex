@@ -19,6 +19,10 @@ h1 {
     height: auto;
 }
 
+form {
+    display: grid;
+}
+
 .search-container col-md-5 col-sm-5 {
     display: grid;
 }
