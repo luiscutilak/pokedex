@@ -12,6 +12,8 @@ body {
     height: 100vh;
     padding: 1rem;
     background-color: #fff;
+    background-image: url("/assets/img/pngfind.com-pokemon-ball-png-83061.png");
+    background-repeat: repeat-x;
 }
 
 @media screen and (min-width: 992px) {
