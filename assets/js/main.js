@@ -38,7 +38,7 @@ pokemonListHtml.addEventListener('click', function(event) {
 
         modalBody = document.getElementById('pokemonModalBody');
           
-        //Transformando para Arquivo Texto, inserindo no HTML
+        //Transformando para Arquivo Texto, inserindo no HTML, com as especialidades de cada pokemon, dinamicamente.
         modalBody.innerHTML = `
             
             <div class="row-pokemon ${pokemonData.type}">
@@ -54,10 +54,40 @@ pokemonListHtml.addEventListener('click', function(event) {
                 <div class="moredetail">
                     <table>
                         <thead>
-                        
-        `
+                            <tr class="poke-about-headline">
+                                <th>About</th>
+                                <th>Base Stats</th>
+                                <th>Evolution</th>
+                                <th>Moves</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>Species</td>
+                                <td colspan="3"${pokemonData.species}</td>
+                            </tr>    
+                            <tr>
+                            <td>Height</td>
+                            <td colspan="3">${pokemonData.height}</td>
+                        </tr>
+                        <tr>
+                            <td>Weight</td>
+                            <td colspan="3">${pokemonData.weight}</td>
+                        </tr>
+                        <tr>
+                            <td>Abilities</td>
+                            <td colspan="3">${pokemonData.abilities}</td>
+                        </tr>   
+                    </tbody>
+                </table>                        
+            </div>               
+        </div>
+    `;
+    modal.show();
     }
-})
+});
+
 
 
 
