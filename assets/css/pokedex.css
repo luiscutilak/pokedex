@@ -12,24 +12,11 @@ h1 {
     list-style: none;
 }
 
-.search_lupa {
-    max-width:20px;
-    max-height:20px;
-    width: auto;
-    height: auto;
-}
 
 form {
     display: grid;
 }
 
-.search-container col-md-5 col-sm-5 {
-    display: grid;
-}
-
-.search-favorite {
-    display: grid;
-}
 
 .text-muted{
     text-align: center;
@@ -254,29 +241,125 @@ form {
     z-index: 5;
 }
 
-table>thead {
-    color: darkgray;
+.pokemonStats {
+    margin-right: 15px;
+    margin-bottom: 10px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 1rem;
+    
+    
 }
 
-table tr th:nth-child(1) {
-    color: #000;
+.pokemonStats:hover{
+    
+    transform: scale(1.1);    
+    color: #fff;
+    cursor: pointer;  
+
 }
 
-table>tbody {
-    color: darkgray;
-}
 
-th {
-    padding-left: 20px;
-}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+  
+  .modal-content {
 
-table tr td:nth-child(2) {
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-transform: capitalize;
+    font-size: 28px;     
+  }
+  
+
+
+  .modal-content img{    
+    
+    align-self: center;
+    top: 10px;
+    right: 20px;
+    max-width: 150px;
+    max-height: 100px;
+    
+  }
+  .modal-content .number {
+    font-size: 20px;
     font-weight: bold;
-    color: #000;
+    color: black;
+    opacity: revert;
+  }
+
+  .modal-content .name{
+    font-size: 22px;
+    padding-bottom: 1rem;
+  }
+
+  .closeModal {
+    position: absolute;
+    align-self: center;
+    top: -30px;
+    left: 50%;
+    font-size: 30px;
+    width: 30px;   
+    cursor: pointer;
+    color: red;    
+    border-radius: 5px;
+  }
+  
+.abilities {
+    
+    font-size: 12px;
+    list-style: none;
+    color: white;
+    padding: 0rem;
+
 }
 
-td {
-    padding-top: 1.2em;
+.stats {
+ 
+    font-size: 12px;
+    list-style: none;
+    color: white;
+    padding: 0rem;
+    
+}
+
+.statsName {
+    
+    font-size: 12px;
+    list-style: none;
+    color: white;
+    padding: 0rem;
+
+}
+
+
+.title-abilities {
+    font-size: 12px;
+    color: white;
+    
+}
+
+.title-stats {
+    
+    font-size: 12px;
+    color: white;
+    
 }
 
 @media screen and (min-width: 380px) {

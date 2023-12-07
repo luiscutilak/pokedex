@@ -1,14 +1,17 @@
-//Abaixo Objeto pokemon recebe os seguintes atribus vindos da Api.
-
 class Pokemon {
-    number;
+    id;
     name;
-    type;
-    types = [];
     photo;
-    stats = [];
+
+    type;
+    types = [];  
+
+    ability;
     abilities = [];
-    species = [];
-    height;
-    wieght;
+   
+    baseStat;
+    stats = [];
+   
+    nameStats;
+    stat = []; 
 }
